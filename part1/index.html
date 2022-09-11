@@ -1,0 +1,355 @@
+<!-- 
+    Author: Satyajit Nabeebacus
+    FrontEnd Engineer technical challenge
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event page</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!--
+    ===============================
+        Header
+    ===============================
+    -->
+    <header>
+        <!-- Top header section -->
+        <section class="top-header">
+            <nav class="page-links d-mobile-hidden">
+                <ul>
+                    <li><a href="https://www.rebelmouse.com/">Terms of Service</a></li>
+                    <li><a href="https://www.rebelmouse.com/">Privacy Policy</a></li>
+                    <li><a href="https://www.rebelmouse.com/">Trademark and Copyright</a></li>
+                    <li><a href="https://www.rebelmouse.com/">About Us</a></li>
+                    <li><a href="https://www.rebelmouse.com/">Advertise on Reliabilityweb.com</a></li>
+                    <li><a href="https://www.rebelmouse.com/">Steal These Graphics</a></li>
+                </ul>
+            </nav>
+            <div class="language-links">
+                <span class="d-mobile-hidden">Visite nuestro sitio en <a href="https://www.rebelmouse.com/">Español</a></span>
+                <span class="d-desktop-hidden">Visite nuestro sitio en Español | <a href="https://www.rebelmouse.com/">Español</a></span>
+            </div>
+        </section>
+        <!-- Top header section END -->
+
+        <section class="main-header">
+            <!-- Burger menu -->
+            <div class="burger-menu d-desktop-hidden">
+                <img src="images/burger-menu.png" alt="burger menu" />
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a href="https://www.rebelmouse.com/">
+                    <img src="images/reliabilityweb-logo1.png" alt="logo square" />
+                    <img src="images/reliabilityweb-logo2.png" alt="logo" />
+                </a>
+                <p class="slogan">A Culture of Realibility<sup>&reg;</sup></p>
+            </div>
+            <!-- Logo END -->
+
+            <!-- Search box, Expanded filter and CTA -->
+            <div class="filter-block">
+                <div class="search-icon d-desktop-hidden">
+                    <img src="images/search-mob.png" alt="search icon" height="17">
+                </div>
+                <div class="search-box d-mobile-hidden">
+                    <img src="images/search.png" alt="search icon" class="search-box__icon" height="17">
+                    <input type="text" name="search" id="search-box__input" class="search-box__input"  placeholder="Search" />
+                </div>
+                <button class="btn btn--transparent dropdown-toggle d-mobile-hidden" type="button">
+                    <span class="btn__text btn__text--md">Explore</span>
+                    <img src="images/arrow-down.png" alt="arrow icon" class="btn__icon">
+                </button>
+                <button class="btn btn--secondary d-mobile-hidden" type="button">
+                    <span class="btn__text btn__text--white">Subscribe</span>
+                </button>
+            </div>
+            <!-- Search box, Expanded filter and CTA END-->
+        </section>
+
+        <!-- Ad block -->
+        <article class="ads ads--landscape">
+            <img src="images/Memorial_imagery728x90.jpg" alt="ads" height="90" class="d-mobile-hidden">
+            <img src="images/image4.jpg" alt="ads" height="50" class="d-desktop-hidden">
+        </article>
+        <!-- Ad block END -->
+    </header>
+
+    <!--
+    ===============================
+        Main content
+    ===============================
+    -->
+    <main>
+        <div class="container">
+            <h1 class="title title--bullet">Events</h1>
+
+            <!-- Featured events -->
+            <section class="featured-events">
+                <article class="featured-event">
+                    <span class="featured-event__label">Featured Event</span>
+                    <div class="featured-event__img">
+                        <img src="images/cmm.png" alt="cmm logo">
+                    </div>
+                    <p class="featured-event__title">January 1, 2021</p>
+                    <div class="featured-event__link"><a href="https://www.rebelmouse.com/">Learn More</a></div>
+                </article>
+
+                <article class="featured-event">
+                    <span class="featured-event__label">Featured Event</span>
+                    <div class="featured-event__img">
+                        <img src="images/cmm.png" alt="cmm logo">
+                    </div>
+                    <p class="featured-event__title">January 1 - December 31, 2021</p>
+                    <div class="featured-event__link"><a href="https://www.rebelmouse.com/">Learn More</a></div>
+                </article>
+
+                <article class="featured-event">
+                    <span class="featured-event__label">Featured Event</span>
+                    <div class="featured-event__img">
+                        <img src="images/imc.png" alt="imc logo">
+                    </div>
+                    <p class="featured-event__title">December 13 - December 16, 2021 Marco Island , Florida</p>
+                    <div class="featured-event__link"><a href="https://www.rebelmouse.com/">Learn More</a></div>
+                </article>
+
+                <article class="featured-event">
+                    <span class="featured-event__label">Featured Event</span>
+                    <div class="featured-event__img">
+                        <img src="images/cmm.png" alt="cmm logo">
+                    </div>
+                    <p class="featured-event__title">January 1, 2021</p>
+                    <div class="featured-event__link"><a href="https://www.rebelmouse.com/">Learn More</a></div>
+                </article>
+
+                <article class="featured-event">
+                    <span class="featured-event__label">Featured Event</span>
+                    <div class="featured-event__img">
+                        <img src="images/imc.png" alt="imc logo">
+                    </div>
+                    <p class="featured-event__title">December 13 - December 16, 2021 Marco Island , Florida</p>
+                    <div class="featured-event__link"><a href="https://www.rebelmouse.com/">Learn More</a></div>
+                </article>
+            </section>
+            <!-- Featured events END -->
+        </div>
+
+        <div class="container">
+            <div class="events-grid-box">
+                <!-- Events -->
+                <section class="events">
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="event">
+                        <header class="event__header">
+                            <div class="event__date">
+                                <img src="images/calendar.png" alt="calendar icon" class="event__header-icon" width="11" />
+                                <span class="event__header-text">January 1 2021 - December 31 2021</span>
+                            </div>
+                            <div class="event__address">
+                                <img src="images/map.png" alt="map icon" class="event__header-icon" width="9" />
+                                <span class="event__header-text">Marco Island, Florida 34145</span>
+                            </div>
+                        </header>
+                        <div class="event__content">
+                            <div class="event__image-box">
+                                <img src="images/event-image.jpg" alt="event image">
+                            </div>
+                            <div class="event__text-box">
+                                <h2 class="event__title">2021 - Reliabilityweb.com Certified Maintenance Manager (CMM) Workshops</h2>
+                                <p class="event__text">Conference</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <!-- Events END -->
+                <aside class="ads ads--square">
+                    <div class="sticky-box">
+                        <img src="images/Memorial Imagery300x250.jpg" alt="ads">
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

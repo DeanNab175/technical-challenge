@@ -1,0 +1,167 @@
+<!-- 
+    Author: Satyajit Nabeebacus
+    FrontEnd Engineer technical challenge
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        .active {
+            background-color: rgb(97, 156, 227);
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="search" placeholder="Search"/>
+    <button type="button" id="search-btn">Search</button>
+    <br /><br />
+
+    <div id="loader">
+        <!-- Free license svg animation from https://loading.io/ -->
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="90px" height="90px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <circle cx="50" cy="50" fill="none" stroke="#28292f" stroke-width="10" r="37" stroke-dasharray="174.35839227423352 60.119464091411174">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" dur="1s" values="0 50 50;360 50 50" keyTimes="0;1"></animateTransform>
+            </circle>
+        </svg>
+    </div>
+
+    <!-- Pagination -->
+    <nav class="pagination-container">
+        <div id="pagination-numbers"></div>
+    </nav>
+
+    <div id="product-catalog"></div>
+
+    <script>
+        const loader = document.getElementById('loader')
+        const productCatalog = document.getElementById('product-catalog')
+        const paginationNumbers = document.getElementById("pagination-numbers");
+        const searchInput = document.getElementById("search");
+        const searchBtn = document.getElementById("search-btn");
+
+        const paginationLimit = 5;
+        let pageCount = 1;
+        let currentPage;
+
+        // Fetch products from API
+        async function getProducts(endpoint) {
+            let productResponse = await fetch(endpoint);
+            let products = await productResponse.json();
+
+            return products.records;
+        }
+
+        /* Add Page Numbers */
+        const createPageNumberBtn = (index) => {
+            const pageNumber = document.createElement("button");
+            pageNumber.className = "pagination-number";
+
+            if(index === 1) {
+                pageNumber.classList.add('active');
+            }
+
+            pageNumber.innerHTML = index;
+            pageNumber.setAttribute("page-index", index);
+            pageNumber.setAttribute("aria-label", "Page " + index);
+
+            paginationNumbers.appendChild(pageNumber);
+        };
+
+        /* Generate pagination buttons */
+        const renderPagination = (pageCount) => {
+            for (let i = 1; i <= pageCount; i++) {
+                createPageNumberBtn(i);
+            }
+        };
+
+        const handleActivePageNumber = () => {
+            const paginationNum = document.querySelectorAll(".pagination-number");
+
+            paginationNum.forEach(btn => {
+                btn.classList.remove("active");
+                
+                const pageIndex = Number(btn.getAttribute("page-index"));
+                if (pageIndex == currentPage) {
+                    btn.classList.add("active");
+                }
+            });
+        };
+
+        /* Display Active Page */
+        const setCurrentPage = (arrayElm, pageNum) => {
+            currentPage = pageNum;
+
+            handleActivePageNumber();
+
+            const prevRange = (pageNum - 1) * paginationLimit;
+            const currRange = pageNum * paginationLimit;
+
+            renderHtml(arrayElm, prevRange, currRange);
+        };
+
+        /* Render product catalog Html */
+        const renderHtml = (arrayElm, prevRange, currRange) => {
+            productCatalog.innerHTML = '';
+
+            arrayElm.map((elm, index) => {
+                if (index >= prevRange && index < currRange) {
+                    const imgElm = document.createElement('img')
+                    imgElm.src = elm.fields.Images[0].url
+                    imgElm.title = elm.fields.Name
+                    imgElm.width = 250
+                    productCatalog.append(imgElm)
+                }
+            })
+        }
+
+        const displayProductCatalog = (filterValue) => {
+            getProducts('https://api.airtable.com/v0/appElurJfZ2WmdIUg/Furniture/?api_key=keys1gmUsZYDi7y0g')
+                .then(products => {
+                    loader.style.display = 'none';
+                    let filteredProducts = products;
+
+                    if(filterValue !== undefined) {
+                        filteredProducts = products.filter(p => p.fields.Name.toLowerCase().includes(filterValue.toLowerCase()))
+                    }
+
+                    pageCount = Math.ceil(filteredProducts.length / paginationLimit)
+
+                    paginationNumbers.innerHTML = '';// empty pagination
+                    renderPagination(pageCount);
+                    setCurrentPage(filteredProducts, 1)
+    
+                    const paginationNum = document.querySelectorAll(".pagination-number");
+    
+                    paginationNum.forEach(btn => {
+                        const pageIndex = Number(btn.getAttribute("page-index"));
+                    
+                        if (pageIndex) {
+                            btn.addEventListener("click", () => {
+                                setCurrentPage(filteredProducts, pageIndex);
+                            });
+                        }
+                    });
+                })
+                .catch(err => console.log('Error loading catalog...'))
+        }
+
+        window.addEventListener('load', displayProductCatalog());
+
+        /* Searching for product */
+        searchBtn.addEventListener('click', () => {
+            if(searchInput.value !== "") {
+                displayProductCatalog(searchInput.value);
+            } else {
+                displayProductCatalog();
+            }
+        });
+
+    </script>
+</body>
+</html>
